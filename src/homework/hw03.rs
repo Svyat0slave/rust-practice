@@ -1,5 +1,5 @@
-const WIDTH: usize = 15;
-const HEIGHT: usize = 15;
+const WIDTH: usize = 20;
+const HEIGHT: usize = 10;
 
 fn main() {
     let mut envelope = String::new();
@@ -7,16 +7,16 @@ fn main() {
     for i in 0..HEIGHT {
         for j in 0..WIDTH {
             if i == 0 || i == HEIGHT - 1 {
-                envelope.push('*');
+                envelope.push('*'); // Верхня та нижня межі
             } else if j == 0 || j == WIDTH - 1 {
-                envelope.push('*');
-            } else if j == i || j == WIDTH - i - 1 {
-                envelope.push('*');
+                envelope.push('*'); // Ліва та права межі
+            } else if j == (i * WIDTH / HEIGHT) || j == (WIDTH - 1 - (i * WIDTH / HEIGHT)) {
+                envelope.push('*'); // Діагоналі з урахуванням пропорційності
             } else {
                 envelope.push(' ');
             }
         }
-        envelope.push('\n');
+        envelope.push('\n'); // Перехід на новий рядок
     }
 
     println!("{}", envelope);
