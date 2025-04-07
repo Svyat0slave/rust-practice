@@ -1,5 +1,5 @@
-const WIDTH: usize = 20;
-const HEIGHT: usize = 10;
+const WIDTH: usize = 29;
+const HEIGHT: usize = 15;
 
 fn main() {
     let mut envelope = String::new();
